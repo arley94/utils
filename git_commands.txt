@@ -1,0 +1,83 @@
+git init								inicia el repositorio
+git add	[archivo]						añade un archivo al stage para darle seguimiento por git
+git commit -m "mensaje"					envenvía los cambios a la base de datos del repositorio
+git add .								añade todos los archivos de una carpeta
+git status								devuelve el estado de la base de datos
+git show 								te va amostrar todos los cambios históricos hechos
+git log [archivo]						ver la historia de un archivo
+git log --stat							ver estadisticas de cambios en los archivos
+git log --all							para mostrar toda la historia sin ocultar nada
+git log --all --graph					mostrar historia con grafos
+
+git log --all --graph --decorate --oneline		mostrar historia con grafos pero más resumida
+
+git push								envía los archivos a un repositorio remoto
+git pull								copia los archivos desde un repositorio remoto
+git checkout							traer cambios de repositorio remoto a local
+git config								para encontrar todas las configuraciones que tiene git
+git reset [tag] --[hard/soft]			para volver en el tiempo(soft conserva los archivos en stage)
+git checkout [tag] [archivo]			restablece una version anterior del archivo				
+git commit -am "mensaje"				git add y git commit juntos(funciona con archivos que ya han estado en el stage, no funciona con archivos nuevos)
+git branch [nombre de la rama]			crea una rama nueva
+git checkout [nombre de la rama]		para moverse hacia otra rama
+git branch								muestra todas las ramas existentes
+git merge [nombre de la rama]			fusiona [rama] con la rama donde te encuentras(ejemplo: si te encuentras en la rama master, importa la [rama] hacia el master)
+git remote add origin [url]				agrega un origen remoto a nuestros archivos locales
+git remote -v							muestra la url de nuestro repositorio
+git remote set-url origin [url]			cambiar la url del repositorio
+git push origin master					envía a origin la rama master
+git pull origin master					trae de origin los cambios a la rama master
+
+
+git pull origin master --allow-unrelated-histories		trae de origin los cambios a la rama master y permite fusionar historias no relacionadas
+
+ssh-keygen -t rsa -b 4096 -C [email]	para generar una llave ssh
+eval $(ssh-agent -s)					para saber si el servidor de llaves ssh está corriendo
+ssh-add [archivo]						para agregar una llave ssh al sistema
+
+
+alias [nombre]="[comando]"				crea alias para los comandos
+
+cat 									para ver el contenido de un archivo de texto
+
+git tag -a [nombre del tag] -m "mensaje" [commit-tag] 	para agregar un tag al repositorio
+git tag [nombre del tag]				agreaga un tag al commit actual
+git tag 								para mostrar lista de tags
+git show-ref --tags 					para ver a que commit corresponde cada tag
+git push origin --tags					para enviarle los tags al repositorio remoto
+git tag -d [nombre del tag]				para borrar un tag(pero no se borra del repositrio remoto, hay que aplicar el comando de abajo)
+git push origin :refs/tags/[nombre de tag]
+git show-branch 						muestra las ramas que exixten y su historia
+git show-branch --all					igual al anterior pero con más detalles
+gitk									abre una ventana gráfica del repositorio
+
+
+git help								muestra la ayuda
+git checkout -- .						para reconstruir todo nuestro proyecto a como estaba en el último commit
+git log --oneline						acorta el hash en el log
+git log --oneline --all --decorate --graph 		muestra arbolito
+git config --global alias.[nombre] "[comando]"	crear alias en git
+git config --global -e					para editar las configuraciones
+git config --global -l					para mostrar las configuraciones en forma de lista en la consola
+git diff --staged						para mostrar las diferencias entre los archivos en el stage y el commit anterior
+git commit --amend -m "[mensaje]"		para remendar el último 
+git reflog
+git mv [nombre actual] [nombre nuevo]	para renombrar archivos
+git rm archivo							para eliminar archivos
+git add -u								para actualizar al stage archivos eliminados
+touch [archivo]							crea un archivo vacío
+git branch -d [nombre de la rama]		para borrar una rama
+git checkout -b [nombre de la rama]		para crear una rama y moverse a ella
+git stash								para salvar temporalmente el trabajo que no está en un commit aún
+git stash list 							para ver todos los trabajos en progreso(WIP)
+git stash pop							recuperar lo guardado en el stash
+git stash drop [stash-id]				eliminar elementos del stash
+git stash apply	[stash-id]				para restaurar un stash en particular
+git stash save --keep-index				guarda todos los archivos menos los que están en el stage
+git stash save --include-untracked		incluye todos los archivos junto a los que git no les da seguimiento
+git show stash [stash-id]				para ver todos los cambios en detalles del stash
+git stash save "[mensaje]"				para guardar un stash con mensajes
+git stash clear 						borra todas las entradas que hay en el stash
+git rebase master 						para hacer un rebase desde master
+git rebase -i [commit-tag]~[número de commits para trabajar] 	para hacer un rebase interactivo
+ejemplo git rebase -i HEAD~3			coge los últimos 3 commits
