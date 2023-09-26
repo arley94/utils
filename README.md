@@ -2,4 +2,4 @@
 
 ### .txt
 
-- [`git_commands`](ft_isalpha.c)	- some gits commands and a short explanation.
+- [`git_commands`](git_commands.txt)	- some gits commands and a short explanation.
